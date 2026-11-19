@@ -19,9 +19,11 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-        /// <summary>
-        ///     Setup runs once before the game loop begins.
-        /// </summary>
+        Vector2 playerposition = new Vector2(300, 400);
+        Vector2 screensize = new Vector2(600, 800);
+        Vector2 size = new Vector2(20, 20);
+
+
         public void Setup()
         {
             Window.SetTitle("Timed Game");
@@ -30,10 +32,7 @@ namespace MohawkGame2D
 
 
         }
-
-        /// <summary>
         ///     Update runs every frame.
-        /// </summary>
         public void Update()
         {
 
@@ -45,47 +44,39 @@ namespace MohawkGame2D
             Draw.Line(0, 100, 600, 100);
             Draw.Line(60, 0, 60, 200);
 
+            playerposition.X = Input.GetMouseX();
+            playerposition.Y = Input.GetMouseY();
+
 
             Draw.SetFillColor(150, 150, 150);
             Draw.SetLineColor(0, 0, 0);
-            Draw.Circle(Input.GetMouseX(), Input.GetMouseY(), 25);
+            Draw.Circle(playerposition, size.X);
 
-            ///timer box
-            Draw.SetFillColor(0, 0, 255);
-            Draw.SetLineSize(0);
-            Draw.Rectangle(0, 0, 58, 98);
-
-
-            ///lives box
-            ///3
-            Draw.SetFillColor(0, 255, 0);
-            Draw.SetLineSize(0);
-            Draw.Rectangle(0, 102, 58, 97);
-            ///2
-            Draw.SetFillColor(255, 255, 0);
-            Draw.SetLineSize(0);
-            Draw.Rectangle(0, 102, 58, 60);
-            ///1
-            Draw.SetFillColor(255, 0, 0);
-            Draw.SetLineSize(0);
-            Draw.Rectangle(0, 102, 58, 20);
-
-
-            Vector2 position = new Vector2();
-            Vector2 size = new Vector2();
-
-
+ 
             // Compute each side of the player
-            float playerLeftEdge = position.X;
-            float playerRightEdge = position.X + size.X;
-            float playerTopEdge = position.Y;
-            float playerBottomEdge = position.Y + size.Y;
+            float playerLeftEdge = playerposition.X;
+            float playerRightEdge = playerposition.X + size.X;
+            float playerTopEdge = playerposition.Y;
+            float playerBottomEdge = playerposition.Y + size.Y;
+
+            // NEED LINE COLLISION
+
 
             // Check each side and see if player is out-of-bounds
             bool isLeftOfWindow = playerLeftEdge <= 0;             // left check
             bool isRightOfWindow = playerRightEdge >= Window.Width;  // right check
-            bool isAboveWindow = playerTopEdge <= 0;             // top check
+            bool isAboveWindow = playerTopEdge <= 200;             // top check
             bool isBelowWindow = playerBottomEdge >= Window.Height; // bottom check
+
+            if (isLeftOfWindow || isRightOfWindow || isAboveWindow || isBelowWindow)
+            {
+                // Player is out-of-bounds
+            }
+            else
+            {
+                playerposition.X = Input.GetMouseX();
+                playerposition.Y = Input.GetMouseY();
+            }
         }
 
     }
