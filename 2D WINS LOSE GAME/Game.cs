@@ -77,6 +77,26 @@ namespace MohawkGame2D
                 playerposition.X = Input.GetMouseX();
                 playerposition.Y = Input.GetMouseY();
             }
+
+            ///timer box
+            //Draw.SetFillColor(0, 0, 255);
+            // Draw.SetLineSize(0);
+            // Draw.Rectangle(0, 0, 58, 98);
+
+
+            ///lives box
+            ///3
+            // Draw.SetFillColor(0, 255, 0);
+            //Draw.SetLineSize(0);
+            // Draw.Rectangle(0, 102, 58, 97);
+            ///2
+            // Draw.SetFillColor(255, 255, 0);
+            // Draw.SetLineSize(0);
+            // Draw.Rectangle(0, 102, 58, 60);
+            ///1
+            // Draw.SetFillColor(255, 0, 0);
+            // Draw.SetLineSize(0);
+            // Draw.Rectangle(0, 102, 58, 20);
         }
 
     }
