@@ -27,8 +27,7 @@ namespace MohawkGame2D
         public void Setup()
         {
             Window.SetTitle("Timed Game");
-            Window.SetSize(600, 800);
-            Vector2 vector = new Vector2();
+            Window.SetSize((int)screensize.X, (int)screensize.Y); 
 
 
         }
@@ -38,35 +37,38 @@ namespace MohawkGame2D
 
             Window.ClearBackground(240);
 
+
+
             Draw.SetLineColor(0);
             Draw.SetLineSize(3);
             Draw.Line(0, 200, 600, 200);
             Draw.Line(0, 100, 600, 100);
             Draw.Line(60, 0, 60, 200);
 
-            playerposition.X = Input.GetMouseX();
-            playerposition.Y = Input.GetMouseY();
 
 
             Draw.SetFillColor(150, 150, 150);
             Draw.SetLineColor(0, 0, 0);
             Draw.Circle(playerposition, size.X);
 
- 
+
             // Compute each side of the player
-            float playerLeftEdge = playerposition.X;
-            float playerRightEdge = playerposition.X + size.X;
-            float playerTopEdge = playerposition.Y;
-            float playerBottomEdge = playerposition.Y + size.Y;
+            float playerLeftEdge = Input.GetMouseX();
+            float playerRightEdge = Input.GetMouseX();
+            float playerTopEdge = Input.GetMouseY();
+            float playerBottomEdge = Input.GetMouseY();
 
             // NEED LINE COLLISION
 
 
             // Check each side and see if player is out-of-bounds
-            bool isLeftOfWindow = playerLeftEdge <= 0;             // left check
-            bool isRightOfWindow = playerRightEdge >= Window.Width;  // right check
-            bool isAboveWindow = playerTopEdge <= 200;             // top check
-            bool isBelowWindow = playerBottomEdge >= Window.Height; // bottom check
+            bool isLeftOfWindow = playerLeftEdge <= 20;            // left check
+            bool isRightOfWindow = playerRightEdge >= Window.Width - 20;  // right check
+            bool isAboveWindow = playerTopEdge <= 220;            // top check
+            bool isBelowWindow = playerBottomEdge >= Window.Height - 20; // bottom check
+
+            //Console.WriteLine($"Left: {isLeftOfWindow}, Right: {isRightOfWindow}, Top: {isAboveWindow}, Bottom: {isBelowWindow}");
+
 
             if (isLeftOfWindow || isRightOfWindow || isAboveWindow || isBelowWindow)
             {
@@ -77,26 +79,6 @@ namespace MohawkGame2D
                 playerposition.X = Input.GetMouseX();
                 playerposition.Y = Input.GetMouseY();
             }
-
-            ///timer box
-            //Draw.SetFillColor(0, 0, 255);
-            // Draw.SetLineSize(0);
-            // Draw.Rectangle(0, 0, 58, 98);
-
-
-            ///lives box
-            ///3
-            // Draw.SetFillColor(0, 255, 0);
-            //Draw.SetLineSize(0);
-            // Draw.Rectangle(0, 102, 58, 97);
-            ///2
-            // Draw.SetFillColor(255, 255, 0);
-            // Draw.SetLineSize(0);
-            // Draw.Rectangle(0, 102, 58, 60);
-            ///1
-            // Draw.SetFillColor(255, 0, 0);
-            // Draw.SetLineSize(0);
-            // Draw.Rectangle(0, 102, 58, 20);
         }
 
     }
