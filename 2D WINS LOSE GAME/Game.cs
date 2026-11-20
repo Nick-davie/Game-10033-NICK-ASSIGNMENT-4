@@ -22,13 +22,13 @@ namespace MohawkGame2D
         Vector2 playerposition = new Vector2(300, 400);
         Vector2 screensize = new Vector2(600, 800);
         Vector2 size = new Vector2(20, 20);
-
+        
 
         public void Setup()
         {
             Window.SetTitle("Timed Game");
-            Window.SetSize((int)screensize.X, (int)screensize.Y); 
-
+            Window.SetSize((int)screensize.X, (int)screensize.Y);
+            
 
         }
         ///     Update runs every frame.
@@ -37,15 +37,33 @@ namespace MohawkGame2D
 
             Window.ClearBackground(240);
 
+            Draw.SetFillColor(250, 0, 0);
+            Draw.Circle(100, 300, 20);
+            Draw.Rectangle(500, 300, 40, 40);
+            Draw.Triangle(300, 260, 350, 310, 250, 310);
 
+
+            Draw.SetFillColor(0, 250, 0);
+            Draw.Circle(100, 400, 20);
+            Draw.Rectangle(500, 400, 40, 40);
+            Draw.Triangle(300, 360, 350, 410, 250, 410);
+
+
+            Draw.SetFillColor(0, 0, 250);
+            Draw.Circle(100, 500, 20);
+            Draw.Rectangle(500, 500, 40, 40);
+            Draw.Triangle(300, 460, 350, 510, 250, 510);
+
+            Draw.SetFillColor(250, 250, 0);
+            Draw.Circle(100, 600, 20);
+            Draw.Rectangle(500, 600, 40, 40);
+            Draw.Triangle(300, 560, 350, 610, 250, 610);
 
             Draw.SetLineColor(0);
             Draw.SetLineSize(3);
             Draw.Line(0, 200, 600, 200);
             Draw.Line(0, 100, 600, 100);
             Draw.Line(60, 0, 60, 200);
-
-
 
             Draw.SetFillColor(150, 150, 150);
             Draw.SetLineColor(0, 0, 0);
@@ -79,6 +97,10 @@ namespace MohawkGame2D
                 playerposition.X = Input.GetMouseX();
                 playerposition.Y = Input.GetMouseY();
             }
+
+
+            Draw.SetFillColor(0, 0, 0);
+            Draw.Rectangle(60, 0, 600, 100);
         }
 
     }
