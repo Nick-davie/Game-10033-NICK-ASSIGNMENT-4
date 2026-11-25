@@ -1,24 +1,25 @@
-﻿namespace MohawkGame2D
+﻿using System.Numerics;
+
+namespace MohawkGame2D
 {
     public class Button
     {
 
         
+       
         int Shape = (1,2,3);
         int Color = (red, green, blue, yellow);
         Color red = (250, 0, 0);
         Color green = (0, 250, 0);
         Color blue = (0, 0, 250);
         Color yellow = (250, 250, 0);
-        Shape Circle = 1;
-        Shape Rectangle = 2;
-        Shape Triangle = 3;
+        System.Numerics.Vector2 position = new System.Numerics.Vector2(100, 100);
+        System.Numerics.Vector2 size = new System.Numerics.Vector2(20, 20);
 
         public void setup()
         {
-            Shape = Random.Range(1, 3);
-            Color = Random.Range();
-            vector2 position = (X, Y); 
+            Shape = Random();
+            Color = Random(); 
         }
         public void update()
         {
@@ -37,25 +38,25 @@
             }
             else if (Shape == 3)
             {
-                Draw.Triangle(position, size);
+                Draw.Triangle(position, size, Color);
             }
         }
         
                 void DrawColor()
                 {
-                    if (Color == red)
+                    if (Color = red)
                     {
                         Draw.SetFillColor(250, 0, 0);
                     }
-                    else if (Color == green)
+                    else if (Color = green)
                     {
                         Draw.SetFillColor(0, 250, 0);
                     }
-                    else if (Color == blue)
+                    else if (Color = blue)
                     {
                         Draw.SetFillColor(0, 0, 250);
                     }
-                    else if (Color == yellow)
+                    else if (Color = yellow)
                     {
                         Draw.SetFillColor(250, 250, 0);
                     }

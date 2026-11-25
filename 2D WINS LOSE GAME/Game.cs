@@ -25,7 +25,7 @@ namespace MohawkGame2D
         Vector2 size = new Vector2(20, 20);
         Vector2 position = new Vector2(100, 100);
         //Pattern = new Pattern();
-        Button Button = new Button();
+        
 
 
         public void Setup()
