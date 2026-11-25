@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Net;
 using System.Numerics;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Xml.Schema;
@@ -22,13 +23,17 @@ namespace MohawkGame2D
         Vector2 playerposition = new Vector2(300, 400);
         Vector2 screensize = new Vector2(600, 800);
         Vector2 size = new Vector2(20, 20);
-        
+        Vector2 position = new Vector2(100, 100);
+        //Pattern = new Pattern();
+        Button Button = new Button();
+
 
         public void Setup()
         {
             Window.SetTitle("Timed Game");
             Window.SetSize((int)screensize.X, (int)screensize.Y);
             
+            Button.Setup();
 
         }
         ///     Update runs every frame.
@@ -37,27 +42,7 @@ namespace MohawkGame2D
 
             Window.ClearBackground(240);
 
-            Draw.SetFillColor(250, 0, 0);
-            Draw.Circle(100, 300, 20);
-            Draw.Rectangle(500, 300, 40, 40);
-            Draw.Triangle(300, 260, 350, 310, 250, 310);
-
-
-            Draw.SetFillColor(0, 250, 0);
-            Draw.Circle(100, 400, 20);
-            Draw.Rectangle(500, 400, 40, 40);
-            Draw.Triangle(300, 360, 350, 410, 250, 410);
-
-
-            Draw.SetFillColor(0, 0, 250);
-            Draw.Circle(100, 500, 20);
-            Draw.Rectangle(500, 500, 40, 40);
-            Draw.Triangle(300, 460, 350, 510, 250, 510);
-
-            Draw.SetFillColor(250, 250, 0);
-            Draw.Circle(100, 600, 20);
-            Draw.Rectangle(500, 600, 40, 40);
-            Draw.Triangle(300, 560, 350, 610, 250, 610);
+            Button.Update();
 
             Draw.SetLineColor(0);
             Draw.SetLineSize(3);
