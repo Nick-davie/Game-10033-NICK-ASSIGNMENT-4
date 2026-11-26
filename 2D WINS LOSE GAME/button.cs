@@ -18,8 +18,7 @@ namespace MohawkGame2D
 
         public void setup()
         {
-            Shape = Random();
-            Color = Random(); 
+            
         }
         public void update()
         {

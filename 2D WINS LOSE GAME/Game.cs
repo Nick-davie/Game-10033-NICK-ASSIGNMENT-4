@@ -25,15 +25,16 @@ namespace MohawkGame2D
         Vector2 size = new Vector2(20, 20);
         Vector2 position = new Vector2(100, 100);
         //Pattern = new Pattern();
-        
+        Button button = new Button();
 
 
         public void Setup()
         {
             Window.SetTitle("Timed Game");
             Window.SetSize((int)screensize.X, (int)screensize.Y);
-            
-            Button.Setup();
+
+            button.Setup();
+           
 
         }
         ///     Update runs every frame.
@@ -42,8 +43,8 @@ namespace MohawkGame2D
 
             Window.ClearBackground(240);
 
-            Button.Update();
-
+            button.Update();
+            
             Draw.SetLineColor(0);
             Draw.SetLineSize(3);
             Draw.Line(0, 200, 600, 200);
